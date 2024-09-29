@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="httpDemo">
+<head>
+    <title>httpDemo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("httpDemo",[]);
+        myvar.controller("myctrl",function($scope,$http){
+
+            $scope.data=[];
+            $scope.error="";
+            
+            $scope.getdata=function(){
+
+                $scope.data = $http.get("https://jsonplaceholder.typicode.com/users")
+                .then(
+
+                    function(response){
+                        $scope.data = response.data;
+                    },
+                    function(error){
+                        $scope.error="Data not found..";
+                    }
+                );
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        <button ng-click="getdata()">getdata</button>
+        <li ng-repeat="user in data">{{user.name}}</li>
+        <p>{{error}}</p>
+    </div>
+</body>
+</html>

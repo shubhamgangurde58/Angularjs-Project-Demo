@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="repeatDemo">
+<head>
+    <title>Repeat-directive-Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("repeatDemo",[]);
+        myvar.controller("myctrl",function($scope){
+
+            $scope.fruits=["Apple","Mango","Grapes","Banana","chikku"];
+
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+
+        Fruits List :
+        <li ng-repeat="fruit in fruits">{{fruit}}</li>
+
+    </div>
+</body>
+</html>

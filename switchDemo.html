@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="switchDemo">
+<head>
+    <title>Switch-Directive-Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar = angular.module("switchDemo",[]);
+        myvar.controller("myctrl",function($scope){
+            $scope.selectedfruit="";
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        Fruits List :
+           <select ng-model="selectedfruit">
+            <option value="Apple">Apple</option>
+            <option value="Mango">Mango</option>
+            <option value="Grapes">Grapes</option>
+            <option value="Banana">Banana</option>
+           </select>
+
+           <div ng-switch="selectedfruit">
+           <p ng-switch-when="Apple">The selected fruits is Apple</p>
+           <p ng-switch-when="Mango">The selected fruits is Mango</p>
+           <p ng-switch-when="Grapes">The selected fruits is Grapes</p>
+           <p ng-switch-when="Banana">The selected fruits is Banana</p>
+        </div>
+    </div>
+</body>
+</html>
